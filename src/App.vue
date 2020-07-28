@@ -13,8 +13,14 @@ export default {
     HelloWorld
   },
   watch: {
-    '$route'(to, from) {
-      this.$router.go(0);
+    // '$route'(to, from) {
+    //   console.log(to)
+    //   this.$router.go(0);
+    // }
+    '$route.path': function (newVal, oldVal) {
+      if (newVal === '/blogs' && oldVal==="/login") {
+        this.$router.go(0);
+      }
     }
   }
 }
